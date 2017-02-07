@@ -315,10 +315,7 @@ public String header = "";
         //grootte van de overlap in het midden van het vennDiagram
         lblOverlaptotal.setText(overlaplength);
                 
-        //debugging
-               System.out.println(genemap.size());
-               System.out.println(om.getCounteroverlap1());
-               System.out.println(om.getCounteroverlap2());
+
         
         //het berekenen van de overlap, deze converteren naar een string en links en rechts in het venn-diagram tekenen.
         lblUniqueLeft.setText(Integer.toString((om.getCounteroverlap1())- (overlapnum)));

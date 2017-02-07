@@ -15,8 +15,12 @@ import java.util.Map;
  */
 public class overlapMaker {
     //aanmaken van verschillende variabelen voor datamanipulatie
-    static Map<Integer, Integer> overlap1 = new HashMap<>();
-    static Map<Integer, Integer> overlap2 = new HashMap<>();
+    private Map<Integer, Integer> overlap1 = new HashMap<>();
+    private Map<Integer, Integer> overlap2 = new HashMap<>();
+    
+    private Map<Integer, Integer> overlap11 = new HashMap<>();
+    private Map<Integer, Integer> overlap22 = new HashMap<>();
+    
     private ArrayList<Gene> export = new ArrayList<>();
     private ArrayList<Gene> geneList = new ArrayList<>();
     private String overlapleft;
@@ -24,6 +28,8 @@ public class overlapMaker {
     private String overlapRight;
     private int counteroverlap1;
     private int counteroverlap2;
+    private int onesize;
+    private int twosize;
     
 
    public Map<Integer, Integer> calculateoverlap(String combo1, String combo2){
@@ -32,6 +38,8 @@ public class overlapMaker {
        int counter = 0;
        overlap1.clear();
        overlap2.clear();
+       overlap11.clear();
+       overlap22.clear();
        
        for(Gene g : geneList){
            
@@ -39,6 +47,7 @@ public class overlapMaker {
            if(g.getInteraction().equals(combo1)){
                //wanneer deze overeenkomt, voeg deze toe aan de hashmap overlap1, plus een counter
                overlap1.put(counter,g.getGeneID1()); 
+               
                //de counter kan worden gebruikt om later in de genelist een object op te halen op basis 
                //van index
                
@@ -64,21 +73,39 @@ public class overlapMaker {
        //de hashmap wordt gestript tot alleen de overeenkomstige waardes erin zitten
        //er is gekozen voor een hashmap omdat deze de snelste big O heeft, omdat het een aantal for-loops bespaart tegenover andere datastructuren
        //en er id's meegegeven kunnen worden.
+       overlap11 = overlap1;
+       overlap22 = overlap2;
+       System.out.println("herrie hieronder x 4");
+       System.out.println(overlap1.size());
+       System.out.println(overlap2.size());
        (overlap1.values()).retainAll((overlap2.values()));
+       onesize = overlap1.size();
+       System.out.println(onesize);
        
+       (overlap22.values()).retainAll((overlap11.values()));
+       twosize = overlap22.size();
+       System.out.println(twosize);
        //meer debugging
        //System.out.println(overlap1);
        
        //de hashmap returnen
        return overlap1;
    }
+   
+    public Map<Integer, Integer> getOverlap11() {
+        return overlap11;
+    }
 
-   //begin getters
-    public static Map<Integer, Integer> getOverlap1() {
+    //begin getters
+    public Map<Integer, Integer> getOverlap22() {
+        return overlap22;
+    }
+
+    public Map<Integer, Integer> getOverlap1() {
         return overlap1;
     }
 
-    public static Map<Integer, Integer> getOverlap2() {
+    public Map<Integer, Integer> getOverlap2() {
         return overlap2;
     }
 
@@ -110,14 +137,21 @@ public class overlapMaker {
         return counteroverlap2;
     }
     
-    
-//begin setters
-    public static void setOverlap1(Map<Integer, Integer> overlap1) {
-        overlapMaker.overlap1 = overlap1;
+    public void setOverlap11(Map<Integer, Integer> overlap11) {    
+        this.overlap11 = overlap11;
     }
 
-    public static void setOverlap2(Map<Integer, Integer> overlap2) {
-        overlapMaker.overlap2 = overlap2;
+//begin setters
+    public void setOverlap22(Map<Integer, Integer> overlap22) {    
+        this.overlap22 = overlap22;
+    }
+
+    public void setOverlap1(Map<Integer, Integer> overlap1) {
+        this.overlap1 = overlap1;
+    }
+
+    public void setOverlap2(Map<Integer, Integer> overlap2) {
+        this.overlap2 = overlap2;
     }
 
     public void setExport(ArrayList<Gene> export) {

@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 
 /**
  * main. hier gebeurd niets behalve het maken van de GUI
+ * Bekende bugs: venn-diagram werkt pas op 2e muisklik
+ * unieke factoren komen soms niet overeen met daadwerkelijke resultaten, vermoedelijk een rekenfout.
  * @author Tim
  */
 public class Overlapviewer {

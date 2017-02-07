@@ -13,14 +13,18 @@ import java.util.Collections;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * functie om op 2 manieren een bestand te exporteren.
  * @author Tim
  */
 public class exportFile {
+    //filename, hardcoded, pas deze aan om het pad te veranderen.
     private static final String FILENAME = "C:\\Users\\Tim\\Desktop\\export.txt";
+    //arraylist om de overlapgenen op te slaan en te exporteren
     ArrayList<Gene> genelist = new ArrayList<>();
+    //writer aanmaken
     BufferedWriter bw = null;
     FileWriter fw = null;
+    //string aanmaken om header op te slaan
     String header;
 
     exportFile(ArrayList<Gene> geneList, String header) {
@@ -28,13 +32,19 @@ public class exportFile {
         this.header = header;
     }
 
+    /**
+     * functie om alle overlappende genen te exporteren.
+     */
     public void exportAll() {
         try {
             fw = new FileWriter(FILENAME);
             bw = new BufferedWriter(fw);
+            //genelist sorteren op basis van GeneID1 (comparable interface
             Collections.sort(genelist);
+            //het schrijven van de header
             bw.write(header + "\n");
             for (Gene g : genelist) {
+                //alle informatie in variabelen zetten, voor beter overzicht
                 String TaxID1 = Integer.toString(g.getTaxID1());
                 String TaxID2 = Integer.toString(g.getTaxID2());
                 String GeneID1 = Integer.toString(g.getGeneID1());
@@ -47,6 +57,7 @@ public class exportFile {
                 String PMID = g.getPMID();
                 String timestamp = g.getTimestamp();
                 String GeneRif = g.getGeneRif();
+                //informatie naar het bestand schrijven
                 bw.write("\n" + TaxID1 + "\t" + GeneID1 + "\t" + accession1 + "\t" + productName1
                         + "\t" + interaction + "\t" + TaxID2 + "\t" + GeneID2 + "\t" + accession2 + "\t" + productName2
                         + "\t" + PMID + "\t" + timestamp + "\t" + GeneRif);
@@ -69,6 +80,9 @@ public class exportFile {
         }
     }
 
+    /**
+     * functie om alleen genen te exporteren die pubmed IDs bevatten, verder hetzelfde als de functie exportAll.
+     */
     public void exportPub() {
         try {
             fw = new FileWriter(FILENAME);

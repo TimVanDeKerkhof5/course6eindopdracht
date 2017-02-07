@@ -8,7 +8,7 @@ package overlapviewer;
 import javax.swing.JFrame;
 
 /**
- *
+ * main. hier gebeurd niets behalve het maken van de GUI
  * @author Tim
  */
 public class Overlapviewer {

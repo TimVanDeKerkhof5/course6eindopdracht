@@ -9,7 +9,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 /**
- *
+ * methode om een bestand te kiezen. returned een filepath.
  * @author Tim
  */
 public class kiesBestand {

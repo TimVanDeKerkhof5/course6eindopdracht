@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * methode om een bestand in te lezen, returned inhoud of header
  * @author Tim
  */
 public class leesBestand {

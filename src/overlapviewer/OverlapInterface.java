@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * GUI: hier wordt de GUI gemaakt, en de verschillende methoden aangeroepen
  * @author Tim
  */
 public class OverlapInterface extends javax.swing.JFrame {

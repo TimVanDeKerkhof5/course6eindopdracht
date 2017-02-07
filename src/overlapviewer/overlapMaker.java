@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * functie die de overlappende genen tussen de 2 selectie bepaald
  * @author Tim
  */
 public class overlapMaker {

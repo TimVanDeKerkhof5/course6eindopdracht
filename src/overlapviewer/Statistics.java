@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
+ * methode om statistieken te berekenen over de aangeleverde dataset
  * @author Tim
  */
 public class Statistics {

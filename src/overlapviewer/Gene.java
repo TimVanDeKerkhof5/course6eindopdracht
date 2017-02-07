@@ -6,7 +6,7 @@
 package overlapviewer;
 
 /**
- *
+ * Gene object. bevat alle variabelen geimporteerd vanuit het aangeleverde bestand. 
  * @author Tim
  */
 //class gene bevat alle eigenschappen van de genen in het opgeleverde bestand. 

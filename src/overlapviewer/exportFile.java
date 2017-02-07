@@ -46,6 +46,7 @@ public class exportFile {
             //het schrijven van de header
 
             try {
+                //wanneer de lijst leeg is, throw de custom exception om export te voorkomen
                 if (genelist.isEmpty()) {
                     throw new geneListEmptyException();
                 } else {
@@ -103,6 +104,7 @@ public class exportFile {
             fw = new FileWriter(FILENAME);
             bw = new BufferedWriter(fw);
             try {
+                //wanneer de lijst leeg is, throw de custom exception om export te voorkomen
                 if (genelist.isEmpty()) {
                     throw new geneListEmptyException();
                 } else {

@@ -5,6 +5,7 @@
  */
 package overlapviewer;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +26,8 @@ private ArrayList<Gene> exportList = new ArrayList<>();
 overlapMaker om = new overlapMaker();
 //instantiëring en declaratie van de string header voor later gebruik in een methode.
 public String header = "";
+
+
 
 
 
@@ -287,6 +290,8 @@ public String header = "";
 
     private void btnVisualizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualizeActionPerformed
         // TODO add your handling code here:
+        //Initialisatie van een graphics object zodat het venndiagram
+        Graphics g = pnlVenn.getGraphics();
         //stapsgewijze enabling van de buttons om errors/verkeerd gebruik te voorkomen.
         btnExportGenes.setEnabled(true);
         btnExportMed.setEnabled(true);
@@ -314,6 +319,8 @@ public String header = "";
         lblUniqueLeft.setText(Integer.toString((om.getCounteroverlap1())- (overlapnum)));
         lblUniqueRight.setText(Integer.toString((om.getCounteroverlap2())- (overlapnum)));
         
+       
+        
         } catch(Exception e){
             //enige mogelijke fout afvangen
             JOptionPane.showMessageDialog(null, "er is een probleem met het berekenen van de overlap!", "Error",
@@ -324,6 +331,9 @@ public String header = "";
         for(int key : genemap.keySet()){
             exportList.add(geneList.get(key));
         }
+        //tekenen van het venndiagram
+        g.drawOval(45, 55, 110, 50);
+        g.drawOval(120, 55, 120, 50);
         
     }//GEN-LAST:event_btnVisualizeActionPerformed
 
@@ -364,4 +374,5 @@ public String header = "";
     private javax.swing.JTextField txtPath;
     private javax.swing.JTextArea txtStatistics;
     // End of variables declaration//GEN-END:variables
+
 }

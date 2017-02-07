@@ -314,6 +314,8 @@ public String header = "";
         lblView2.setText(cmbLap2.getSelectedItem().toString());
         //grootte van de overlap in het midden van het vennDiagram
         lblOverlaptotal.setText(overlaplength);
+                
+
         
         //het berekenen van de overlap, deze converteren naar een string en links en rechts in het venn-diagram tekenen.
         lblUniqueLeft.setText(Integer.toString((om.getCounteroverlap1())- (overlapnum)));

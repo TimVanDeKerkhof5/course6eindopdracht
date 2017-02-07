@@ -36,16 +36,20 @@ public class leesBestand {
                 }
         }
         } catch (FileNotFoundException ex) {
+            //popup voor een file not found error
             JOptionPane.showMessageDialog(null, "er was een probleem met het openen van de file!", "Error",
                                     JOptionPane.ERROR_MESSAGE);
         } catch (IOException ex) {
+            //popup voor een input/output error
             JOptionPane.showMessageDialog(null, "er was een input/output fout!", "Error",
                                     JOptionPane.ERROR_MESSAGE);
         }
+        //fileinhoud returnen in de vorm van een arraylist
         return inhoud; 
         
     }
     public String getTitle(){
+        //header van het bestand returnen in de vorm van een string
         return header;
     }
     

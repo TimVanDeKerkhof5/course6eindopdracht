@@ -14,16 +14,19 @@ import java.util.Set;
  * @author Tim
  */
 public class Statistics {
+    //fields
+    //een list met objecten, integers voor de statistieken die worden gebruikt in de GUI
     ArrayList<Gene> geneList = new ArrayList<>();
     Set<Integer> gene1 = new HashSet<>();
     Set<Integer> gene2 = new HashSet<>();
     Set<String> Interaction = new HashSet<>();
-    
+    //constructor
     Statistics(ArrayList<Gene> geneList){
         this.geneList = geneList;
     }
     
     public int tax1Length(){
+        //totaalaantal tax1 genen berekenen, d.m.v. een hashset en returnen
         for(Gene ob : geneList){
             gene1.add(ob.getGeneID1());
         }
@@ -31,6 +34,7 @@ public class Statistics {
     }
     
     public int tax2Length(){
+        //totaalaantal tax2 genen berekenen, d.m.v. een hashset en returnen
         for(Gene ob : geneList){
             gene2.add(ob.getGeneID2());
         }
@@ -38,6 +42,7 @@ public class Statistics {
     }
     
     public int countInteractions(){
+        //aantal unieke interacties berekenen d.m.v. een hashset
         for(Gene ob : geneList){
             Interaction.add(ob.getInteraction());
         }
@@ -45,6 +50,7 @@ public class Statistics {
     }
     
     public int geneSize(){
+        //totaalaantal interacties bepalen en returnen.
         return geneList.size();
     }
 //start of getters
